@@ -9,6 +9,7 @@ import com.example.demo.Repository.InventaireRepo;
 import com.example.demo.entite.Inventaire;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class InventaireService {
@@ -20,7 +21,10 @@ public class InventaireService {
 		
 		public List<Inventaire> getInventaire() {
 			return (List<Inventaire>) inventaireRepo.findAll();
-			 
+		}
+		
+		public Optional<Inventaire> getInventaireByIDs(Integer id) {
+			return inventaireRepo.findById(id);
 		}
 		
 		public Inventaire saveInventaire(Inventaire inventaire) {
