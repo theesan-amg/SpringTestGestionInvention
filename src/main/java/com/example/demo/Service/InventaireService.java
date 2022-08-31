@@ -30,6 +30,16 @@ public class InventaireService {
 		public void deleteInventaire (Integer id) {
 			 inventaireRepo.deleteById(id);
 		}
+		
+		public Inventaire updateInventaire (Inventaire inventaire) {
+			Integer inventaireId = inventaire.getInventaire_id();
+			Inventaire inv = inventaireRepo.findById(inventaireId).get();
+			inv.setInventaire_id(inventaire.getInventaire_id());
+			inv.setMagasin_id(inventaire.getMagasin_id());
+			inv.setMateriel_id(inventaire.getMateriel_id());
+			inv.setTimestamp(inventaire.getTimestamp());
+			return inventaireRepo.save(inv);
+		}
 
 
 
